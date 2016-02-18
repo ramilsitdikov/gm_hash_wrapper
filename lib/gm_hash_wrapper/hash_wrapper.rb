@@ -18,10 +18,6 @@ module GmHashWrapper
       @body
     end
 
-    def to_json
-      @body.to_json
-    end
-
     def nil?
       @body.keys.empty?
     end

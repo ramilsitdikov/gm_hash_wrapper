@@ -34,12 +34,12 @@ module GmHashWrapper
       body.each &block
     end
 
-    def method_missing method, *args, &block
-      if @body.has_key?(method)
-        if @body[method].kind_of?(Hash)
-          return HashWrapper.new(@body[method])
-        elsif @body[method].kind_of?(Array)
-          return @body[method].map do |x|
+    def method_missing meth, *args, &block
+      if @body.has_key?(meth)
+        if @body[meth].kind_of?(Hash)
+          return HashWrapper.new(@body[meth])
+        elsif @body[meth].kind_of?(Array)
+          return @body[meth].map do |x|
             if x.kind_of?(Hash)
               HashWrapper.new(x)
             else
@@ -47,14 +47,14 @@ module GmHashWrapper
             end
           end
         else
-          return @body[method]
+          return @body[meth]
         end
       end
       nil
     end
 
-    def respond_to_missing?(method, include_private = false)
-      @body.has_key?(method) || super
+    def respond_to_missing?(meth, include_private = false)
+      @body.has_key?(meth) || super
     end
   end
 end

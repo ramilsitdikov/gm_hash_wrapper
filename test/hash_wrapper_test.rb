@@ -2,8 +2,8 @@ require 'test_helper'
 
 class HashWrapperTest < Minitest::Test
   def test_should_respond_to_methods
-    hash = {}
-    wrapped_hash = HashWrapper.new(hash)
+    hash = { key1: "value1", "key2": "value2" }
+    wrapped_hash = GmHashWrapper::HashWrapper.new(hash)
     assert wrapped_hash.respond_to?('set_data')
     assert wrapped_hash.respond_to?('to_h')
     assert wrapped_hash.respond_to?('as_json')

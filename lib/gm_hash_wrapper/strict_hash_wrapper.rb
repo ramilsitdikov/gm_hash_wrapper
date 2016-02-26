@@ -20,7 +20,7 @@ module GmHashWrapper
           return @body[meth]
         end
       else
-        raise("undefined method '#{meth}' for #{body}")
+        raise("undefined method \'#{meth}\' for #{body}")
       end
     end
 

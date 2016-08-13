@@ -1,8 +1,8 @@
 # GmHashWrapper
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gm_hash_wrapper`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The usage of this gem is similar to OpenStruct gem. It contains 2 different classes for wrapping hash into object:
+  * One of them just tries to wrap hash.
+  * Second one raises an error.
 
 ## Installation
 
@@ -22,7 +22,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+  * HashWrapper
+
+hash = { key1: "value1", "key2": "value2" }
+wrapped_hash = GmHashWrapper::HashWrapper.new(hash)
+
+* StrictHashWrapper
+
+hash = { key1: "value1", "key2": "value2" }
+strict_wrapped_hash = GmHashWrapper::StrictHashWrapper.new(hash)
+
+Other usage examples you can find in tests.
 
 ## Development
 
